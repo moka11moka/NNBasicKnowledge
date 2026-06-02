@@ -17,10 +17,16 @@
 
 示例数据使用 8 个特征、200 个样本，训练结束后学到的参数会非常接近预设的真实值。
 
-### 运行方式
+## ppo_cleanrl_teaching.py
+
+一个面向教学的 PPO 示例脚本，风格参考 CleanRL，但做了简化，方便阅读和在本地 CPU 上运行。
+
+它包含 Actor-Critic 网络、数据采样、优势估计、PPO 更新流程，以及一些小测试。默认可以先跑测试，再进行一段较短的 CartPole 训练。
+
+运行方式：
 
 ```bash
-python3 LinearRegressionNum.py
+python ppo_cleanrl_teaching.py
 ```
 
-依赖：`numpy`
+
