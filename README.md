@@ -26,7 +26,7 @@
 运行方式：
 
 ```bash
-python ppo_cleanrl_teaching.py
+python3 ppo_cleanrl_teaching.py
 ```
 
 GAE 和 Loss 的核心对应：
@@ -38,7 +38,7 @@ R_t = A_t + V(s_t)
 L = L_{policy} + c_1 L_{value} - c_2 H
 ```
 
-```python
+```python3
 delta = rewards[t] + gamma * next_values * nonterminal - values[t]
 last_gae = delta + gamma * gae_lambda * nonterminal * last_gae
 returns = advantages + values
