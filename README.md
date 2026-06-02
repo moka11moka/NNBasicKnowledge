@@ -29,4 +29,18 @@
 python ppo_cleanrl_teaching.py
 ```
 
+GAE 和 Loss 的核心对应：
 
+```latex
+\delta_t = r_t + \gamma V(s_{t+1}) - V(s_t)
+A_t = \delta_t + \gamma \lambda A_{t+1}
+R_t = A_t + V(s_t)
+L = L_{policy} + c_1 L_{value} - c_2 H
+```
+
+```python
+delta = rewards[t] + gamma * next_values * nonterminal - values[t]
+last_gae = delta + gamma * gae_lambda * nonterminal * last_gae
+returns = advantages + values
+total_loss = policy_loss - ent_coef * entropy_loss + vf_coef * value_loss
+```
